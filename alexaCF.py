@@ -34,7 +34,7 @@ def homepage():
 
 @ask.launch
 def start_skill():
-	welcome_message = 'What do you want to know in Codeforces'
+	welcome_message = 'What do you want to know in Codeforces?'
 	print welcome_message
 	return question(welcome_message)
 
@@ -45,12 +45,12 @@ def Contest():
 
 @ask.intent("SendIntent")
 def Contest():
-	contest_data=send_me()
-	return statement(contest_data)
+	sent_confirmation=send_me()
+	return statement(sent_confirmation)
 
 @ask.intent("NoIntent")
 def no_intent():
-	bye_text = "Get lost, why did you even wake me up"
+	bye_text = "Thank You for wasting my time. Get Lost."
 	return statement(bye_text)
 
 
