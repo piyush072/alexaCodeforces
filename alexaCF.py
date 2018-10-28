@@ -25,7 +25,7 @@ def send_me():
 	data = response.json()['result']
 	for i in range(1,len(data)):
 		if(data[i]['phase']=='BEFORE'):
-			x = x+"#"+str(i)+". " + data[i]['name'] + '\n'
+			x = x+"#"+str(i)+". " + data[i]['name'] + '\n' + datetime.utcfromtimestamp(data[i]['startTimeSeconds']).strftime('%H:%M %d-%m-%Y')+'\n'
 
 		if(data[i]['phase']=='FINISHED'):
 			break
