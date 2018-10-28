@@ -23,8 +23,12 @@ def send_me():
 	x=""
 	response = requests.get('http://codeforces.com/api/contest.list')
 	data = response.json()['result']
-	for i in range(1,6):
-		x = x+"#"+str(i)+". "+data[i-1]['name']+'\n'
+	for i in range(1,len(data)):
+		if(data[i]['phase']=='BEFORE'):
+			x = x+"#"+str(i)+". " + data[i]['name'] + '\n'
+
+		if(data[i]['phase']=='FINISHED'):
+			break
 	push = pb.push_note("Codeforces Contests", x)
 	return "I have sent it. You can check it now."
 
