@@ -16,8 +16,11 @@ def get_contest():
 	x=""
 	response = requests.get('http://codeforces.com/api/contest.list')
 	data = response.json()['result']
-	for i in range(1,6):
-		x = x+"#"+str(i)+". "+data[i-1]['name']+"... "
+	for i in range(1,len(data)):
+		if(data[i]['phase']=='BEFORE')
+			x = x+"#"+str(i)+". "+data[i-1]['name']+"... "
+		else:
+			break
 	return x
 
 def send_me():
