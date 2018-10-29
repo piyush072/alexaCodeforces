@@ -7,7 +7,8 @@ import unidecode
 from pushbullet import Pushbullet
 from datetime import datetime
 
-pb = Pushbullet('o.ecIJUMq4TRVdkrU83tTEeSoXk7cVyppp')
+apikey =""
+pb = Pushbullet(apikey)
 
 app = Flask(__name__)
 ask = Ask(app, "/codeforces_contest")
@@ -17,7 +18,7 @@ def get_contest():
 	response = requests.get('http://codeforces.com/api/contest.list')
 	data = response.json()['result']
 	for i in range(1,len(data)):
-		if(data[i]['phase']=='BEFORE')
+		if(data[i]['phase']=='BEFORE'):
 			x = x+"#"+str(i)+". "+data[i-1]['name']+"... "
 		else:
 			break
